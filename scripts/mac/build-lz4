@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+if [ -z "$O3" ]; then
+    echo O3 var must point to ovpn3 tree ; exit 1
+fi
+if [ -z "$DEP_DIR" ]; then
+    echo DEP_DIR var must point to ovpn3 dependency tree
+    exit 1
+fi
+cd $DEP_DIR
+
+rm -rf lz4
+mkdir lz4
+
+if [ "$BUILD_IOS" = "1" ]; then
+    #for target in ios ios-dbg iossim iossim-dbg ; do
+	for target in ios ; do
+	echo '***************' TARGET $target
+	TARGET=$target $O3/core/deps/lz4/build-lz4
+    done
+fi
+
+if [ "$BUILD_OSX" = "1" ]; then
+    for target in osx osx-dbg ; do
+        echo '***************' TARGET $target
+        TARGET=$target $O3/core/deps/lz4/build-lz4
+    done
+fi
+exit 0

@@ -1,0 +1,5 @@
+README.html
+x64
+*.vcxproj.user
+*.ipch
+.idea/
