@@ -20,7 +20,11 @@ if [ -z "$TARGET" ]; then
 fi
 
 # source vars
-. $O3/core/vars/vars-${TARGET}
+if [ -z "$ARCH" ]; then
+    . $O3/core/vars/vars-${TARGET}
+else
+    . $O3/core/vars/vars-${TARGET}-${ARCH}
+fi
 . $O3/core/deps/lib-versions
 
 # source helper functions
