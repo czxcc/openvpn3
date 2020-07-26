@@ -328,10 +328,6 @@ else
     [ "$GPROF" = "1" ] && FLAGS="$FLAGS -pg"
 fi
 
-if [ "$PROF" = "mingw" ]; then
-    LIBS="$LIBS -lucrtbase"
-fi
-
 # Construct command
 if [ "$OBJC" == "1" ]; then
     FLAGS="$FLAGS -fobjc-arc"
