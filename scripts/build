@@ -328,6 +328,10 @@ else
     [ "$GPROF" = "1" ] && FLAGS="$FLAGS -pg"
 fi
 
+if [ "$PROF" = "mingw" ]; then
+    LIBS="$LIBS -lucrtbase"
+fi
+
 # Construct command
 if [ "$OBJC" == "1" ]; then
     FLAGS="$FLAGS -fobjc-arc"
@@ -337,10 +341,6 @@ if [ "$OBJC" == "1" ]; then
 else
     CMD="$GPP_CMD $FLAGS $GCC_EXTRA $CPPFLAGS $LIBDIRS $1.cpp $EXTRA_CPP $EXTRA_SRC_OBJ $OUTPUT $LIBS"
 fi
-
-echo "---------\r\n"
-echo "$LIBS"
-echo "---------\r\n"
 
 # execute CMD
 [ "$ECHO" = "1" ] && echo $CMD
