@@ -186,6 +186,7 @@ if [ "$APPLE_FAMILY" = "1" ]; then
     LIBS="$LIBS -framework CoreFoundation -framework SystemConfiguration -framework IOKit -framework ApplicationServices"
 fi
 
+echo "-----------------------------------$PROF\r\n"
 if [ "$PROF" = "mingw" ]; then
     LIBS="$LIBS -lws2_32 -liphlpapi"
 fi
