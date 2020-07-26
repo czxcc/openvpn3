@@ -96,7 +96,7 @@ namespace openvpn {
      */
     inline int getopt_internal(int nargc, char * const *nargv, const char *ostr)
     {
-      static char *place = GETOPT_EMSG;		/* option letter processing */
+      static char *place = (char *)GETOPT_EMSG;		/* option letter processing */
       const char *oli;				/* option letter list index */
 
       if (!nargv || !ostr)
@@ -105,12 +105,12 @@ namespace openvpn {
       if (optreset || !*place) {		/* update scanning pointer */
 	optreset = 0;
 	if (optind >= nargc || *(place = nargv[optind]) != '-') {
-	  place = GETOPT_EMSG;
+	  place = (char *)GETOPT_EMSG;
 	  return (-1);
 	}
 	if (place[1] && *++place == '-') {	/* found "--" */
 	  /* ++optind; */
-	  place = GETOPT_EMSG;
+	  place = (char *)GETOPT_EMSG;
 	  return (-2);
 	}
       }					/* option letter okay? */
@@ -136,13 +136,13 @@ namespace openvpn {
 	if (*place)			/* no white space */
 	  optarg = place;
 	else if (nargc <= ++optind) {	/* no arg */
-	  place = GETOPT_EMSG;
+	  place = (char *)GETOPT_EMSG;
 	  if ((opterr) && (*ostr != ':'))
 	    getopt_private::error("option requires an argument", optopt);
 	  return (GETOPT_BADARG);
 	} else				/* white space */
 	  optarg = nargv[optind];
-	place = GETOPT_EMSG;
+	place = (char *)GETOPT_EMSG;
 	++optind;
       }
       return (optopt);			/* dump back option letter */
