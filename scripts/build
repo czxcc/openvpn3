@@ -62,11 +62,7 @@ fi
 if [ "$PROF" ]; then
     suffix=""
     [ "$DPROF" = "1" ] && suffix="-dbg"
-    if [ -z "$ARCH" ]; then
-        pfn="$O3/core/vars/vars-$PROF$suffix"
-    else
-        pfn="$O3/core/vars/vars-$PROF-$ARCH$suffix"
-    fi
+    pfn="$O3/core/vars/vars-$PROF$suffix"
     if ! [ -f "$pfn" ]; then
 	pfn="$PROF"
     fi
