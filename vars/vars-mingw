@@ -1,8 +1,8 @@
 export PLATFORM=mingw
 [ -z "$DEP_DIR" ] && export DEP_DIR=$HOME/src/mingw
 export DEBUG_BUILD=0
-export GPP_CMD=x86_64-w64-mingw32-g++-posix
-export GCC_CMD=x86_64-w64-mingw32-gcc-posix
+export GPP_CMD=x86_64-w64-mingw32-g++
+export GCC_CMD=x86_64-w64-mingw32-gcc
 export AR_CMD=x86_64-w64-mingw32-ar
 export RANLIB_CMD=x86_64-w64-mingw32-ranlib
 export PLATFORM_FLAGS=""
