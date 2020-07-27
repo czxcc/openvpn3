@@ -30,7 +30,7 @@
 
 #ifdef OPENVPN_PLATFORM_WIN
 #include <basetsd.h>
-typedef SSIZE_T ssize_t;
+// typedef SSIZE_T ssize_t;
 #else
 #include <unistd.h> // get ssize_t
 #endif
