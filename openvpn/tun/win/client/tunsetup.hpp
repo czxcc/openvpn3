@@ -567,11 +567,12 @@ namespace openvpn {
 	  // Use WFP for DNS leak protection.
 	  // If we added DNS servers, block DNS on all interfaces except
 	  // the TAP adapter.
-	  if (use_wfp && !split_dns && !openvpn_app_path.empty() && (dns.ipv4() || dns.ipv6()))
-	    {
-	      create.add(new ActionWFP(openvpn_app_path, tap.index, true, wfp));
-	      destroy.add(new ActionWFP(openvpn_app_path, tap.index, false, wfp));
-	    }
+      // todo fobidden wfp
+	  // if (use_wfp && !split_dns && !openvpn_app_path.empty() && (dns.ipv4() || dns.ipv6()))
+	  //   {
+	  //     create.add(new ActionWFP(openvpn_app_path, tap.index, true, wfp));
+	  //     destroy.add(new ActionWFP(openvpn_app_path, tap.index, false, wfp));
+	  //   }
 	}
 
 	// Set a default TAP-adapter domain suffix using
@@ -844,7 +845,8 @@ namespace openvpn {
       }
 
 #if _WIN32_WINNT >= 0x0600 // Vista+
-      TunWin::WFPContext::Ptr wfp{new TunWin::WFPContext};
+      // todo fobidden wfp
+      // TunWin::WFPContext::Ptr wfp{new TunWin::WFPContext};
 #endif
 
       std::unique_ptr<std::thread> l2_thread;
