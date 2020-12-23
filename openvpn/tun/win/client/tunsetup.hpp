@@ -698,8 +698,8 @@ namespace openvpn {
 	    }
 
 	    // Pre route-add sleep
-	    os << "Sleeping 1.5 seconds prior to adding routes..." << std::endl;
-	    ::Sleep(1500);
+	    os << "Sleeping 0.25 seconds prior to adding routes..." << std::endl;
+	    ::Sleep(250);
 	  }
 
 	// Process routes
